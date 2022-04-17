@@ -12,6 +12,8 @@ type ArgsAdd struct {
 type ReplyAdd struct {
 	sum int
 }
+
+// 定义接口
 type DemoAdd interface {
 	Add(ctx context.Context, add ArgsAdd, replyAdd ReplyAdd) error
 }
