@@ -4,13 +4,13 @@ import "context"
 
 // 入参数
 type ArgsAdd struct {
-	a int
-	b int
+	Num_1 int
+	Num_2 int
 }
 
 //出参数
 type ReplyAdd struct {
-	sum int
+	Sum int
 }
 
 // 定义接口
