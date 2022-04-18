@@ -15,5 +15,5 @@ type ReplyAdd struct {
 
 // 定义接口
 type DemoAdd interface {
-	Add(ctx context.Context, add ArgsAdd, replyAdd ReplyAdd) error
+	Add(ctx context.Context, add *ArgsAdd, replyAdd *ReplyAdd) error
 }

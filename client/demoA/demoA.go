@@ -16,6 +16,6 @@ func (d *DemoA) Init() *DemoA {
 	return d
 }
 
-func (d *DemoA) Add(ctx context.Context, ArgsAdd demoA.ArgsAdd, replyAdd demoA.ReplyAdd) error {
+func (d *DemoA) Add(ctx context.Context, ArgsAdd *demoA.ArgsAdd, replyAdd *demoA.ReplyAdd) error {
 	return d.Call(ctx, "Add", ArgsAdd, replyAdd)
 }
