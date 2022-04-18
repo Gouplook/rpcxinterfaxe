@@ -3,11 +3,8 @@ package client
 import (
 	"context"
 	"fmt"
-	"github.com/Gouplook/dzbase/common/plugins/jaeger"
 	"github.com/Gouplook/dzgin"
 	"github.com/smallnest/rpcx/client"
-	"net/http"
-
 	"sync"
 )
 
@@ -69,16 +66,19 @@ func (c *BaseClient) GetDiscovery() client.ServiceDiscovery {
 
 func (c *BaseClient) Call(ctx context.Context, serviceMethod string, args interface{}, reply interface{}) error {
 
-	span, ctx, spanErr := jaeger.RpcxSpanWithContext(ctx, fmt.Sprintf("调用%s服务的%s方法", c.ServicePath, serviceMethod), &http.Request{})
-	if spanErr == nil {
-		span.SetTag("参数", args)
-		defer span.Finish()
-	}
+	//span, ctx, spanErr := jaeger.RpcxSpanWithContext(ctx, fmt.Sprintf("调用%s服务的%s方法", c.ServicePath, serviceMethod), &http.Request{})
+	//if spanErr == nil {
+	//	span.SetTag("参数", args)
+	//	defer span.Finish()
+	//}
 
 	err := c.getXClient().Call(ctx, serviceMethod, args, reply)
-	if err != nil && spanErr == nil {
-		span.SetTag("error", true)
-		span.SetTag("错误信息", fmt.Sprint(err))
+	//if err != nil && spanErr == nil {
+	//	span.SetTag("error", true)
+	//	span.SetTag("错误信息", fmt.Sprint(err))
+	//}
+	if err != nil {
+		fmt.Println("Call err ")
 	}
 	return err
 }
