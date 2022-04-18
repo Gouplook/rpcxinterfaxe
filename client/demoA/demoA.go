@@ -11,7 +11,7 @@ type DemoA struct {
 }
 
 func (d *DemoA) Init() *DemoA {
-	d.ServiceName = "rpc_demoA"
+	d.ServiceName = "rpcx_A"
 	d.ServicePath = "DemoA"
 	return d
 }
